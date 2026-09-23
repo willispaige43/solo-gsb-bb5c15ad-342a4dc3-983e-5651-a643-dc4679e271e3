@@ -15,16 +15,16 @@ from __future__ import annotations
 
 import math
 
-from app.models import (
-    EPS,
+from app.models.analysis.fairness import (
     FairnessPrincipalRow,
     FairnessReportRequest,
     FairnessReportResponse,
     FairnessScopeReport,
     FairnessWindowReport,
     FirstShortfall,
-    WindowRange,
 )
+from app.models.analysis.usage import WindowRange
+from app.models.common import EPS
 from app.simulation import _round
 
 

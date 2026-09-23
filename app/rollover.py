@@ -19,9 +19,8 @@ from __future__ import annotations
 
 import math
 
-from app.models import (
-    EPS,
-    BucketBalance,
+from app.models.common import EPS, BucketBalance
+from app.models.windows.rollover import (
     PeriodRange,
     RolloverBalances,
     RolloverPolicyFinalState,

@@ -1,7 +1,7 @@
 """等待时间预测：链上全部桶首次同时满足成本的时刻（不扣减任何状态）。"""
 from __future__ import annotations
 
-from app.models import (
+from app.models.analysis.forecast import (
     EPS,
     ForecastBucketResult,
     ForecastRequest,

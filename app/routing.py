@@ -12,9 +12,8 @@
 """
 from __future__ import annotations
 
-from app.models import (
-    EPS,
-    BucketBalance,
+from app.models.common import EPS, BucketBalance
+from app.models.scheduling.routing import (
     RouteCandidateRejection,
     RouteSimResult,
     RouteSimulateRequest,

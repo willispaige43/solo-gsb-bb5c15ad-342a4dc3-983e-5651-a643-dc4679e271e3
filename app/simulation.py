@@ -1,7 +1,8 @@
 """核心模拟引擎：连续补充 + 链上原子扣减。"""
 from __future__ import annotations
 
-from app.models import EPS, SimulateRequest, SimulateResponse, SimResult, BucketBalance
+from app.models.common import EPS, BucketBalance
+from app.models.simulation.core import SimResult, SimulateRequest, SimulateResponse
 
 # 输出精度，避免二进制浮点产生的长尾数
 _ROUND_DIGITS = 9

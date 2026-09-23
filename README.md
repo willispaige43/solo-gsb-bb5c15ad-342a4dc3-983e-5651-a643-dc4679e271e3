@@ -1507,7 +1507,14 @@ pytest -q
 .
 ├── app/
 │   ├── main.py          # FastAPI 路由与异常处理
-│   ├── models.py        # Pydantic 模型与输入校验
+│   ├── models/          # Pydantic 模型与输入校验（按领域拆分，app.models 为稳定门面）
+│   │   ├── __init__.py  # 门面：原样再导出全部公开模型名，历史导入路径保持可用
+│   │   ├── common.py    # 公共基础：EPS、有限数校验、BucketBalance
+│   │   ├── simulation/  # 基础模拟域（/simulate、/plan-initial-balances）
+│   │   ├── analysis/    # 分析域（/forecast、/usage-report、/fairness-report）
+│   │   ├── scheduling/  # 预留/路由/排队域（reservation/route/queue）
+│   │   ├── windows/     # 窗口/结转域（/window-simulate、/rollover-simulate）
+│   │   └── debt/        # 债务对比域（/debt-simulate、/debt-diff）
 │   ├── simulation.py    # 连续补充 + 原子扣减模拟引擎
 │   ├── forecast.py      # 等待时间预测引擎（不扣减状态）
 │   ├── planner.py       # 初始余额规划引擎（反推最低 initial）
@@ -1521,7 +1528,7 @@ pytest -q
 │   ├── debt.py          # 可借贷桶试算引擎（补充先还债、限额内借债的链上原子扣减）
 │   ├── debt_diff.py     # 两情景差异引擎（baseline/candidate 各自回放后按原始索引对齐）
 │   └── errors.py        # 跨字段校验错误类型
-├── tests/               # pytest 测试（引擎语义 + HTTP）
+├── tests/               # pytest 测试（引擎语义 + HTTP + 模型结构/OpenAPI 契约）
 ├── examples/request.json
 ├── examples/forecast.json
 ├── examples/plan-initial-balances.json

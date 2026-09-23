@@ -18,9 +18,8 @@ from __future__ import annotations
 
 from typing import Literal
 
-from app.models import (
-    EPS,
-    BucketBalance,
+from app.models.common import EPS, BucketBalance
+from app.models.debt.simulate import (
     DebtBucketBalance,
     DebtBucketFinalState,
     DebtRejection,

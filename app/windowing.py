@@ -13,8 +13,8 @@
 """
 from __future__ import annotations
 
-from app.models import (
-    EPS,
+from app.models.common import EPS
+from app.models.windows.sliding import (
     SlidingWindowRange,
     WindowPolicyFinalState,
     WindowPolicyView,

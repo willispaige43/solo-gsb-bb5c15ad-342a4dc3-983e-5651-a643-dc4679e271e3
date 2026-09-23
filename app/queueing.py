@@ -19,9 +19,8 @@ from __future__ import annotations
 import math
 from typing import Literal
 
-from app.models import (
-    EPS,
-    BucketBalance,
+from app.models.common import EPS, BucketBalance
+from app.models.scheduling.queueing import (
     QueueSimResult,
     QueueSimulateRequest,
     QueueSimulateResponse,
