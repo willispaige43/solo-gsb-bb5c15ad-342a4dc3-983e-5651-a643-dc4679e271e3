@@ -8,8 +8,8 @@ DebtDiffRequest 跨字段校验阶段以 422 拒绝，不会进入回放。
 from __future__ import annotations
 
 from app.debt import replay_debt
-from app.models import (
-    DebtBucketFinalState,
+from app.models.debt import DebtBucketFinalState, DebtSimResult
+from app.models.debt_diff import (
     DebtDiffBucketDelta,
     DebtDiffFinalSnapshot,
     DebtDiffFirstDivergence,
@@ -17,7 +17,6 @@ from app.models import (
     DebtDiffRequest,
     DebtDiffResponse,
     DebtDiffResult,
-    DebtSimResult,
 )
 from app.simulation import _round
 

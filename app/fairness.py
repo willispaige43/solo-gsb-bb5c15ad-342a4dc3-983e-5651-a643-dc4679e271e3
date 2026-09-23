@@ -15,8 +15,7 @@ from __future__ import annotations
 
 import math
 
-from app.models import (
-    EPS,
+from app.models.analysis import (
     FairnessPrincipalRow,
     FairnessReportRequest,
     FairnessReportResponse,
@@ -25,6 +24,7 @@ from app.models import (
     FirstShortfall,
     WindowRange,
 )
+from app.models.base import EPS
 from app.simulation import _round
 
 

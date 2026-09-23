@@ -19,9 +19,7 @@ from __future__ import annotations
 
 import math
 
-from app.models import (
-    EPS,
-    BucketBalance,
+from app.models.rollover import (
     PeriodRange,
     RolloverBalances,
     RolloverPolicyFinalState,
@@ -31,6 +29,7 @@ from app.models import (
     RolloverSimulateRequest,
     RolloverSimulateResponse,
 )
+from app.models.base import BucketBalance, EPS
 from app.simulation import _round
 
 

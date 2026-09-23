@@ -1507,7 +1507,18 @@ pytest -q
 .
 ├── app/
 │   ├── main.py          # FastAPI 路由与异常处理
-│   ├── models.py        # Pydantic 模型与输入校验
+│   ├── models/          # Pydantic 模型与输入校验（按领域拆分，app.models 门面统一导出）
+│   │   ├── __init__.py          # 稳定导出门面：from app.models import X 的名称保持不变
+│   │   ├── base.py              # 公共基础模型（BucketSpec/SimRequest/SimulateRequest 等）
+│   │   ├── simulation_models.py # 基础模拟响应（/simulate、/plan-initial-balances）
+│   │   ├── analysis.py          # 分析领域（预测/规划/用量报告/公平性报告）
+│   │   ├── reservation.py       # 预留（/reservation-simulate）
+│   │   ├── routing.py           # 路由（/route-simulate）
+│   │   ├── queueing.py          # 排队（/queue-simulate）
+│   │   ├── windowing.py         # 滑动窗口（/window-simulate）
+│   │   ├── rollover.py          # 周期结转（/rollover-simulate）
+│   │   ├── debt.py              # 可借贷桶（/debt-simulate）
+│   │   └── debt_diff.py         # 两情景债务对比（/debt-diff）
 │   ├── simulation.py    # 连续补充 + 原子扣减模拟引擎
 │   ├── forecast.py      # 等待时间预测引擎（不扣减状态）
 │   ├── planner.py       # 初始余额规划引擎（反推最低 initial）
@@ -1521,7 +1532,7 @@ pytest -q
 │   ├── debt.py          # 可借贷桶试算引擎（补充先还债、限额内借债的链上原子扣减）
 │   ├── debt_diff.py     # 两情景差异引擎（baseline/candidate 各自回放后按原始索引对齐）
 │   └── errors.py        # 跨字段校验错误类型
-├── tests/               # pytest 测试（引擎语义 + HTTP）
+├── tests/               # pytest 测试（引擎语义 + HTTP + 模型门面/领域边界结构约束）
 ├── examples/request.json
 ├── examples/forecast.json
 ├── examples/plan-initial-balances.json

@@ -1,14 +1,12 @@
 """初始余额规划：以全部请求放行为目标，反推每个桶所需的最低 initial。"""
 from __future__ import annotations
 
-from app.models import (
-    EPS,
-    BucketSpec,
+from app.models.analysis import (
     PlanBucketResult,
     PlanFailure,
     PlanInitialBalancesResponse,
-    SimulateRequest,
 )
+from app.models.base import EPS, BucketSpec, SimulateRequest
 from app.simulation import _round, simulate
 
 

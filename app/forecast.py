@@ -1,12 +1,8 @@
 """等待时间预测：链上全部桶首次同时满足成本的时刻（不扣减任何状态）。"""
 from __future__ import annotations
 
-from app.models import (
-    EPS,
-    ForecastBucketResult,
-    ForecastRequest,
-    ForecastResponse,
-)
+from app.models.analysis import ForecastBucketResult, ForecastRequest, ForecastResponse
+from app.models.base import EPS
 from app.simulation import _round
 
 # 不可达原因标记

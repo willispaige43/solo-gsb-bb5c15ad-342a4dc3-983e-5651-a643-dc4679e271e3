@@ -7,14 +7,14 @@
 """
 from __future__ import annotations
 
-from app.models import (
-    EPS,
+from app.models.reservation import (
     OccupancyInterval,
     ReservationBucketOccupancy,
     ReservationResult,
     ReservationSimulateRequest,
     ReservationSimulateResponse,
 )
+from app.models.base import EPS
 from app.simulation import _round
 
 # 已接受区间：(start, end, cost)

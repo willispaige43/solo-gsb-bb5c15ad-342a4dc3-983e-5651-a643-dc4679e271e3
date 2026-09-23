@@ -12,14 +12,13 @@
 """
 from __future__ import annotations
 
-from app.models import (
-    EPS,
-    BucketBalance,
+from app.models.routing import (
     RouteCandidateRejection,
     RouteSimResult,
     RouteSimulateRequest,
     RouteSimulateResponse,
 )
+from app.models.base import BucketBalance, EPS
 from app.simulation import _round
 
 

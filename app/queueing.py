@@ -19,13 +19,12 @@ from __future__ import annotations
 import math
 from typing import Literal
 
-from app.models import (
-    EPS,
-    BucketBalance,
+from app.models.queueing import (
     QueueSimResult,
     QueueSimulateRequest,
     QueueSimulateResponse,
 )
+from app.models.base import BucketBalance, EPS
 from app.simulation import _round
 
 

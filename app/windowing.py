@@ -13,8 +13,7 @@
 """
 from __future__ import annotations
 
-from app.models import (
-    EPS,
+from app.models.windowing import (
     SlidingWindowRange,
     WindowPolicyFinalState,
     WindowPolicyView,
@@ -24,6 +23,7 @@ from app.models import (
     WindowSimulateRequest,
     WindowSimulateResponse,
 )
+from app.models.base import EPS
 from app.simulation import _round
 
 
